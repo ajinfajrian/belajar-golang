@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 func main() {
-	var firstName string
-	var lastName string
-	fmt.Print("First name: ")
-	fmt.Scan(&firstName)
-	fmt.Print("Middle name: ")
-	fmt.Scan(&lastName)
-	n := firstName + " " + lastName
-	fmt.Println("Your Full name is", n)
+	var nilai int
+	fmt.Print("Input Nilai Anda: ")
+	n, err := fmt.Scanln(&nilai)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if nilai == 10 {
+		fmt.Println("Selamat anda lulus")
+	} else if nilai >= 5 {
+		fmt.Println("Anda tetap lulus")
+	} else if nilai == 4 {
+		fmt.Println("Anda Hampir lulus")
+	} else {
+		fmt.Printf("Anda tidak lulus, nilai anda: %v \n", n)
+	}
 }
